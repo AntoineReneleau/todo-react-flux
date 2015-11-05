@@ -1,6 +1,7 @@
 'use strict';
 
 import React, {Component} from 'react';
+import Header from './Header.jsx';
 import MainSection from './MainSection.jsx';
 
 class TodoApp extends Component {
@@ -9,9 +10,7 @@ class TodoApp extends Component {
 
     return (
       <div>
-        <header id="header">
-          <h1>todos</h1>
-        </header>
+        <Header />
         <MainSection todos={todos} />
       </div>
     );
