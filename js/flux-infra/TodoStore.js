@@ -24,6 +24,9 @@ class TodoStore extends ReduceStore {
       case 'todo/update-text':
         return state.setIn([action.id, 'text'], action.text.trim());
 
+      case 'todo/destroy':
+        return state.delete(action.id);
+
       default:
         return state;
     }
