@@ -42,6 +42,7 @@ export default class TodoItem extends Component {
           <label onDoubleClick={this._onDoubleClick}>
             {todo.text}
           </label>
+          <button className="destroy" onClick={this._onDestroyClick} />
         </div>
         {input}
       </li>
@@ -75,5 +76,13 @@ export default class TodoItem extends Component {
       text,
     });
     this.setState({isEditing: false});
+  }
+
+  _onDestroyClick = () => {
+    const {todo} = this.props;
+    dispatch({
+      type: 'todo/destroy',
+      id: todo.id,
+    });
   }
 }
