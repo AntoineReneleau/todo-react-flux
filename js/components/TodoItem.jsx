@@ -4,6 +4,8 @@ import React, {Component} from 'react';
 
 import classnames from 'classnames';
 
+import {dispatch} from '../flux-infra/TodoDispatcher';
+
 export default class TodoItem extends Component {
   render() {
     const {todo} = this.props;
@@ -19,6 +21,7 @@ export default class TodoItem extends Component {
             className="toggle"
             type="checkbox"
             checked={todo.complete}
+            onChange={this._onToggleComplete}
           />
           <label>
             {todo.text}
@@ -26,5 +29,20 @@ export default class TodoItem extends Component {
         </div>
       </li>
     );
+  }
+
+  _onToggleComplete = () => {
+    const {todo} = this.props;
+    if (todo.complete) {
+      dispatch({
+        type: 'todo/undo-complete',
+        id: todo.id,
+      });
+    } else {
+      dispatch({
+        type: 'todo/complete',
+        id: todo.id,
+      });
+    }
   }
 }
