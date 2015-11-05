@@ -27,6 +27,9 @@ class TodoStore extends ReduceStore {
       case 'todo/destroy':
         return state.delete(action.id);
 
+      case 'todo/destroy-completed':
+        return state.filter(todo => !todo.complete);
+
       default:
         return state;
     }

@@ -3,6 +3,7 @@
 import React, {Component} from 'react';
 import Header from './Header.jsx';
 import MainSection from './MainSection.jsx';
+import Footer from './Footer.jsx';
 
 import {Container} from 'flux/utils';
 import TodoStore from '../flux-infra/TodoStore';
@@ -23,6 +24,7 @@ class TodoApp extends Component {
       <div>
         <Header />
         <MainSection todos={this.state.todos} />
+        <Footer todos={this.state.todos} />
       </div>
     );
   }
