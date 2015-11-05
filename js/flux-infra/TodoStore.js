@@ -15,6 +15,12 @@ class TodoStore extends ReduceStore {
       case 'todo/create':
         return createTodo(state, action.text);
 
+      case 'todo/complete':
+        return state.setIn([action.id, 'complete'], true);
+
+      case 'todo/undo-complete':
+        return state.setIn([action.id, 'complete'], false);
+
       default:
         return state;
     }
