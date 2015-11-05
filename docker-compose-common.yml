@@ -1,0 +1,7 @@
+node:
+    build: docker/node
+    volumes:
+        - ".:/src"
+    command: /src/docker/node/script/start.sh
+    environment:
+        PROJECT_ENV:

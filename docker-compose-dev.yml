@@ -1,0 +1,12 @@
+node:
+    extends:
+        file: docker-compose-common.yml
+        service: node
+    environment:
+        VIRTUAL_HOST: node.dev.zol.fr
+        PROJECT_ENV:
+
+builder:
+    extends:
+        file: .zol/zol-common/compose/common.yml
+        service: builder
