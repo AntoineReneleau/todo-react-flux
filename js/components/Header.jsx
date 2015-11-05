@@ -3,6 +3,8 @@
 import React, {Component} from 'react';
 import TodoTextInput from './TodoTextInput.jsx';
 
+import {dispatch} from '../flux-infra/TodoDispatcher';
+
 export default class Header extends Component {
   render() {
     return (
@@ -19,7 +21,10 @@ export default class Header extends Component {
 
   _onSave(text) {
     if (text.trim()) {
-      alert(text);
+      dispatch({
+        type: 'todo/create',
+        text,
+      });
     }
   }
 }
