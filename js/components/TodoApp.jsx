@@ -1,20 +1,18 @@
 'use strict';
 
 import React, {Component} from 'react';
+import MainSection from './MainSection.jsx';
 
 class TodoApp extends Component {
   render() {
+    let todos = [];
+
     return (
       <div>
         <header id="header">
           <h1>todos</h1>
         </header>
-        <section id="main">
-          <ul id="todo-list">
-            <li>Todo</li>
-            <li>Todo 2</li>
-          </ul>
-        </section>
+        <MainSection todos={todos} />
       </div>
     );
   }
