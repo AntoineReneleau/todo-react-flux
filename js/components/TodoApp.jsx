@@ -4,17 +4,29 @@ import React, {Component} from 'react';
 import Header from './Header.jsx';
 import MainSection from './MainSection.jsx';
 
-class TodoApp extends Component {
-  render() {
-    let todos = [];
+import {Container} from 'flux/utils';
+import TodoStore from '../flux-infra/TodoStore';
 
+class TodoApp extends Component {
+  static getStores() {
+    return [TodoStore];
+  }
+
+  static calculateState() {
+    return {
+      todos: TodoStore.getState(),
+    };
+  }
+
+  render() {
     return (
       <div>
         <Header />
-        <MainSection todos={todos} />
+        <MainSection todos={this.state.todos} />
       </div>
     );
   }
 }
 
-export default TodoApp;
+const TodoAppContainer = Container.create(TodoApp);
+export default TodoAppContainer;
