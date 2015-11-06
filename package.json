@@ -23,7 +23,7 @@
   },
   "scripts": {
     "watch": "watchify -o js/bundle.min.js -v -d js/app.js",
-    "start": "npm run build && xdg-open index.html",
+    "start": "npm run build",
     "build": "browserify . -t [envify --NODE_ENV production] -t [babelify --stage 0] | uglifyjs -cm > js/bundle.min.js"
   },
   "author": "Antoine Reneleau",
